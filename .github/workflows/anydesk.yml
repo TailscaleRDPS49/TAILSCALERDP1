@@ -1,0 +1,34 @@
+name: Windows Cloud PC Setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Download Installer (Placeholder)
+      run: |
+        Invoke-WebRequest `
+          -Uri "https://example.com/installer.exe" `
+          -OutFile "installer.exe"
+        Write-Host "Download complete."
+
+    - name: Install Software (Placeholder)
+      run: |
+        Start-Process "installer.exe" -ArgumentList "/S" -Wait
+        Write-Host "Installation completed."
+
+    - name: Time Counter
+      run: |
+        Write-Host "Current Timestamp:"
+        Get-Date
+
+    - name: Authentication Info
+      run: |
+        Write-Host "To authenticate, visit your authorized management portal."
+        Write-Host "Remote access credentials are NOT handled by CI/CD."
